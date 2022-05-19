@@ -1,18 +1,53 @@
 #include<iostream>
 using namespace std;
 
-int sum();
+class bank{
+    private:
+        int accno, bal;
+        char cname[20];
+
+    public:
+        void openAccount(){
+            cout<<endl<<"Enter Account no. : ";
+            cin>>accno;
+
+            cout<<endl<<"Enter Name : ";
+            cin>>cname;
+
+            cout<<endl<<"Enter Balance : ";
+            cin>>bal;
+        }
+        void printData(){
+            cout<<endl<<"Account No. : "<<accno;
+            cout<<endl<<"Name        : "<<cname;
+            cout<<endl<<"Balance     : "<<bal<<" $";
+        }
+
+        void deposit(){
+            int x;
+            cout<<endl<<"Enter amount to deposit : ";
+            cin>>x;
+            bal=bal+x;
+        }
+        
+        void withdrawl(){
+            int x;
+            cout<<endl<<"Enter amount to witdrawl : ";
+            cin>>x;
+            bal=bal-x;
+        }
+};
+
 int main(){
-    sum();
+    bank customer1;
+
+    customer1.openAccount();
+    customer1.printData();
+    customer1.deposit();
+    customer1.withdrawl();
+    customer1.printData();
     return 0;
+
 }
 
-int sum(){
-    int a, b;
-    cout<<"Enter value of a:";
-    cin>>a;
-    cout<<"\nEnter value of b:";
-    cin>>b;
-    cout<<"Addition of two numbers : "<<a+b;
-    return 0;
-}
+
